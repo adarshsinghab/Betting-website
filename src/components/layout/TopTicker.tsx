@@ -97,7 +97,7 @@ export function TopTicker() {
 
         {/* 24/7 Support */}
         <button
-          onClick={() => alert("Connecting to Parimatch 24/7 Support Agent...")}
+          onClick={() => openModal("responsibleGaming")}
           className="flex items-center gap-1 text-white/50 hover:text-white transition-colors"
         >
           <HelpCircle className="w-3 h-3" />

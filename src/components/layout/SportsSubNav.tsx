@@ -1,11 +1,7 @@
 "use client";
 
 import React from "react";
-import { 
-  Trophy, 
-  Flame
-} from "lucide-react";
-import { FlaticonIcon } from "@/components/ui/FlaticonIcon";
+import { SportIcon } from "@/components/ui/SportIcon";
 import { useUI } from "@/context/UIContext";
 import { cn } from "@/lib/utils";
 import { SportType } from "@/types";
@@ -48,7 +44,7 @@ export function SportsSubNav() {
               : "text-white/70 hover:text-white"
           )}
         >
-          <Trophy className="w-3.5 h-3.5 text-[#FEE500]" />
+          <SportIcon name="trophy" size={14} className="text-[#FEE500]" />
           <span>Prematch</span>
         </button>
 
@@ -61,7 +57,7 @@ export function SportsSubNav() {
               : "text-white/70 hover:text-red-400"
           )}
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
+          <SportIcon name="live" size={14} className="text-red-400" />
           <span>Live In-Play (37)</span>
         </button>
 
@@ -86,7 +82,7 @@ export function SportsSubNav() {
                   : "bg-[#212631] text-white/75 hover:text-white hover:bg-[#282D3A] border border-[#2E3544]"
               )}
             >
-              <FlaticonIcon name={sport.iconName} className="text-xs shrink-0" />
+              <SportIcon name={sport.iconName} size={15} className="shrink-0" />
               <span>{sport.name}</span>
               {sport.count && (
                 <span

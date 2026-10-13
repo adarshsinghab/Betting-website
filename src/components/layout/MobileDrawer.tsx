@@ -3,11 +3,6 @@
 import React from "react";
 import { 
   X, 
-  Trophy, 
-  Flame, 
-  Sparkles, 
-  Zap, 
-  Gamepad2, 
   Gift, 
   ShieldCheck, 
   User, 
@@ -17,6 +12,7 @@ import {
   Sun,
   Moon
 } from "lucide-react";
+import { SportIcon } from "@/components/ui/SportIcon";
 import { useUI } from "@/context/UIContext";
 import { useAuth } from "@/context/AuthContext";
 import { useWallet } from "@/context/WalletContext";
@@ -100,18 +96,18 @@ export function MobileDrawer() {
           {/* Nav Items */}
           <div className="flex flex-col gap-1 text-xs">
             {[
-              { id: "sports", label: "Sportsbook", icon: Trophy },
-              { id: "live", label: "Live In-Play", icon: Flame, isLive: true },
-              { id: "casino", label: "Casino Slots", icon: Sparkles },
-              { id: "live-casino", label: "Live Dealers 4K", icon: Sparkles, tag: "NEW" },
-              { id: "instant-games", label: "Instant & Crash", icon: Zap, tag: "HOT" },
-              { id: "virtuals", label: "Virtual Sports", icon: Trophy },
-              { id: "predictions", label: "Predictions", icon: Gamepad2 },
+              { id: "sports", label: "Sportsbook", sportIcon: "trophy" },
+              { id: "live", label: "Live In-Play", sportIcon: "live", isLive: true },
+              { id: "casino", label: "Casino Slots", sportIcon: "slot-machine" },
+              { id: "live-casino", label: "Live Dealers 4K", sportIcon: "casino", tag: "NEW" },
+              { id: "instant-games", label: "Instant & Crash", sportIcon: "bolt", tag: "HOT" },
+              { id: "virtuals", label: "Virtual Sports", sportIcon: "football" },
+              { id: "predictions", label: "Predictions", sportIcon: "esports" },
               { id: "promotions", label: "Promotions", icon: Gift, tag: "₹100K" },
               { id: "admin", label: "Backoffice Admin", icon: ShieldCheck, tag: "OPS" },
               { id: "account", label: "My Account & KYC", icon: User },
             ].map((item) => {
-              const Icon = item.icon;
+              const Icon = (item as any).icon;
               const isActive = activeTab === item.id;
               return (
                 <button
@@ -125,7 +121,15 @@ export function MobileDrawer() {
                   )}
                 >
                   <div className="flex items-center gap-2.5">
-                    <Icon className="w-4 h-4" />
+                    {item.sportIcon ? (
+                      <SportIcon
+                        name={item.sportIcon}
+                        size={16}
+                        className={cn(isActive ? "text-black" : "text-[#FEE500]")}
+                      />
+                    ) : Icon ? (
+                      <Icon className="w-4 h-4" />
+                    ) : null}
                     <span>{item.label}</span>
                   </div>
                   {item.tag && (
@@ -134,7 +138,7 @@ export function MobileDrawer() {
                     </span>
                   )}
                   {item.isLive && (
-                    <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />
+                    <span className="w-2 h-2 rounded-full bg-red-500" />
                   )}
                 </button>
               );

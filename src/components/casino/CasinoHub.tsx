@@ -2,7 +2,6 @@
 
 import React, { useState, useMemo } from "react";
 import { 
-  Sparkles, 
   Flame, 
   Search, 
   Play, 
@@ -12,6 +11,7 @@ import {
   Award,
   Crown
 } from "lucide-react";
+import { SportIcon } from "@/components/ui/SportIcon";
 import { useUI } from "@/context/UIContext";
 import { useFavorites } from "@/context/FavoritesContext";
 import { MOCK_CASINO_GAMES } from "@/data/mock/casino";
@@ -91,7 +91,7 @@ export function CasinoHub() {
             >
               <span>{cat.label}</span>
               {cat.isHot && (
-                <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping" />
+                <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
               )}
             </button>
           ))}
@@ -158,7 +158,7 @@ export function CasinoHub() {
                   />
                 ) : (
                   <div className="w-full h-full bg-[#181B24] flex items-center justify-center">
-                    <Sparkles className="w-6 h-6 text-[#FEE500]" />
+                    <SportIcon name="chip" size={28} className="text-[#FEE500]" />
                   </div>
                 )}
 

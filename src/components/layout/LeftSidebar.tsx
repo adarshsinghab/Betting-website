@@ -9,7 +9,7 @@ import {
   Crown
 } from "lucide-react";
 import { CountryFlag } from "@/components/ui/CountryFlag";
-import { FlaticonIcon } from "@/components/ui/FlaticonIcon";
+import { SportIcon } from "@/components/ui/SportIcon";
 import { useUI } from "@/context/UIContext";
 import { cn } from "@/lib/utils";
 import { SportType } from "@/types";
@@ -122,7 +122,11 @@ export function LeftSidebar() {
               )}
             >
               <div className="flex items-center gap-2 truncate">
-                <FlaticonIcon name={sport.iconName} className="text-xs shrink-0 text-white/60" />
+                <SportIcon
+                  name={sport.iconName}
+                  size={15}
+                  className={cn("shrink-0", isSelected ? "text-[#FEE500]" : "text-white/60")}
+                />
                 <span className="truncate text-xs">{sport.name}</span>
               </div>
               <span className="text-[10px] font-mono text-white/40">{sport.count}</span>

@@ -10,6 +10,7 @@ import { useUI } from "@/context/UIContext";
 import { useBetSlip } from "@/context/BetSlipContext";
 import { useFavorites } from "@/context/FavoritesContext";
 import { CountryFlag } from "@/components/ui/CountryFlag";
+import { SportIcon } from "@/components/ui/SportIcon";
 import { cn } from "@/lib/utils";
 
 interface MatchCardProps {
@@ -99,9 +100,10 @@ export function MatchCard({ match, featured = false }: MatchCardProps) {
         featured ? "ring-1 ring-[#FEE500]/20" : ""
       )}
     >
-      {/* Top Header: League, Country Flag, Time, Fav */}
+      {/* Top Header: League, Sport Icon, Country Flag, Time, Fav */}
       <div className="flex items-center justify-between px-3.5 py-2 bg-[#1C2029] border-b border-[#2E3544] text-[11px]">
         <div className="flex items-center gap-2 truncate">
+          <SportIcon name={sport} size={13} className="text-white/50 shrink-0" />
           <CountryFlag countryCode={resolvedCountryCode} size={15} />
           <span className="font-semibold text-white/80 truncate">
             {league}
