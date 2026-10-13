@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #FEE500;
+  --color-bg-base: #171A21;
+  --color-surface-card: #212631;
+  --color-surface-hover: #292F3D;
+  --color-border-subtle: #2E3544;
+  --color-border-hover: #3C4456;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: #171A21;
+  color: #F3F4F6;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Sportsbook Surface System - Authentic PariMatch Design */
+.pm-card {
+  background-color: #212631;
+  border: 1px solid #2E3544;
+}
+
+.pm-card:hover {
+  border-color: #3C4456;
+}
+
+.pm-odds-btn {
+  background-color: #2A303D;
+  border: 1px solid #343C4D;
+  color: #FFFFFF;
+  transition: all 0.12s ease-in-out;
+}
+
+.pm-odds-btn:hover {
+  background-color: #353D4E;
+  border-color: #465066;
+}
+
+.pm-odds-btn.selected {
+  background-color: #FEE500 !important;
+  border-color: #FEE500 !important;
+  color: #111317 !important;
+}
+
+/* Modern Compact Scrollbars */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Marquee for verified live ticker */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: inline-flex;
+  animation: marquee 38s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
